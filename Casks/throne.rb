@@ -1,16 +1,17 @@
 cask "throne" do
   arch arm: "arm64", intel: "amd64"
 
-  version "1.3.2"
-  sha256 arm:   "c5371633f17e46d18d999206a79bafe4ec1b20e03acf51171261f3084b702b16",
-         intel: "b5312bd4b6aceb5d2107be06fb6a407ec4da5159c5da0b428ac26c784bf404a9"
+  version "1.4.0"
+  sha256 arm:   "2b1b00af31ad4399f8bf5e1116011d566167ad33d54dc542fa2eafe23ff240c6",
+         intel: "b2eb70db2de2f57f800a836d4cfd6fc31eeb3224e1a1c267be2381672cef30bd"
 
   url "https://github.com/throneproj/Throne/releases/download/#{version}/Throne-#{version}-macos-#{arch}.zip"
   name "Throne"
   desc "Cross-platform GUI proxy utility powered by sing-box"
   homepage "https://github.com/throneproj/Throne"
 
-  depends_on macos: :ventura
+  # The app needs macOS 14.4 (Qt 6.12); Homebrew has no minor-version floor, and LSMinimumSystemVersion refuses 14.0-14.3.
+  depends_on macos: :sonoma
 
   app "Throne/Throne.app"
 
