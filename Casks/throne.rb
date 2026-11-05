@@ -16,9 +16,9 @@ cask "throne" do
 
   # Releases are ad-hoc signed, not notarized, so Gatekeeper refuses a quarantined first launch.
   postflight_steps do
-            run "/usr/bin/xattr",
-                args:         ["-dr", "com.apple.quarantine", "{{appdir}}/Throne.app"],
-                print_stderr: false
+    run "/usr/bin/xattr",
+        args:         ["-dr", "com.apple.quarantine", "{{appdir}}/Throne.app"],
+        print_stderr: false
   end
 
   zap trash: "~/Library/Preferences/Throne"
